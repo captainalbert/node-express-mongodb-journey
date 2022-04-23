@@ -8,7 +8,7 @@ const product_data = fs.readFileSync(
   `${__dirname}/dev-data/data.json`, //'dirname' pertains to the root directory name where this file is location. It is used in replacement of '.'
   "utf-8"
 );
-const product_data_object = JSON.parse(product_data_object);
+const product_data_object = JSON.parse(product_data);
 
 // SERVER
 const server = http.createServer((req, res) => {
