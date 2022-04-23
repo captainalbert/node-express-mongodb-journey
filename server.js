@@ -21,13 +21,13 @@ const server = http.createServer((req, res) => {
     //Product page
     res.end("THIS IS PRODUCT");
   } else if (route === "/api") {
-    //API page
+    //API
     res.writeHead(200, {
       "Content-Type": "application/json",
     }),
       res.end(product_data);
   } else {
-    //Not found page
+    //Not found
     res.writeHead(404, {
       "Content-Type": "text/html",
     }),
