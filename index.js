@@ -1,10 +1,10 @@
 const fs = require("fs");
 
 // BLOCKING / SYNCHRONOUS
-// const text = fs.readFileSync("./txt/input.txt", "utf-8");
-// const newText = `Some avodado description: ${text}`;
-// fs.writeFileSync("./txt/output.txt", newText);
-// console.log("New file has been created. \nFile name: output.txt");
+const text = fs.readFileSync("./txt/input.txt", "utf-8");
+const newText = `Some avodado description: ${text}`;
+fs.writeFileSync("./txt/output.txt", newText);
+console.log("New file has been created. \nFile name: output.txt");
 
 // NON-BLOCKING / ASYNCRHONOUS
 fs.readFile("./txt/start.txt", "utf-8", (err, data1) => {
