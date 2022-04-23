@@ -14,19 +14,25 @@ const product_data_object = JSON.parse(product_data_object);
 const server = http.createServer((req, res) => {
   const route = req.url;
 
-  route === "/overview" || route === "/"
-    ? res.end("THIS IS OVERVIEW")
-    : route === "/product"
-    ? res.end("THIS IS PRODUCT")
-    : route === "/api"
-    ? (res.writeHead(200, {
-        "Content-Type": "application/json",
-      }),
-      res.end(product_data))
-    : (res.writeHead(404, {
-        "Content-Type": "text/html",
-      }),
-      res.end("<h1>PAGE NOT FOUND!</h1>"));
+  if (route === "/overview" || route === "/") {
+    //Overview page
+    res.end("THIS IS OVERVIEW");
+  } else if (route === "/product") {
+    //Product page
+    res.end("THIS IS PRODUCT");
+  } else if (route === "/api") {
+    //API page
+    res.writeHead(200, {
+      "Content-Type": "application/json",
+    }),
+      res.end(product_data);
+  } else {
+    //Not found page
+    res.writeHead(404, {
+      "Content-Type": "text/html",
+    }),
+      res.end("<h1>PAGE NOT FOUND!</h1>");
+  }
 });
 
 server.listen(port, address, () => {
